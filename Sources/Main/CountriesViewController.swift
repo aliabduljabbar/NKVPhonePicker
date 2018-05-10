@@ -7,7 +7,7 @@
 
 import UIKit
 
-public protocol CountriesViewControllerDelegate {
+@objc public protocol CountriesViewControllerDelegate {
     func countriesViewControllerDidCancel(_ sender: CountriesViewController)
     func countriesViewController(_ sender: CountriesViewController, didSelectCountry country: Country)
 }
@@ -21,7 +21,7 @@ public final class CountriesViewController: UITableViewController {
     /// A class function for retrieving standart controller for picking countries.
     ///
     /// - Returns: Instance of the country picker controller.
-    public class func standardController() -> CountriesViewController {
+    @objc public class func standardController() -> CountriesViewController {
         return UIStoryboard(name: "CountriesViewController", bundle: Bundle(for: self)).instantiateViewController(withIdentifier: "CountryPickerVC") as! CountriesViewController
     }
     
@@ -38,7 +38,7 @@ public final class CountriesViewController: UITableViewController {
     public var shouldScrollToSelectedCountry: Bool = true
 
     /// A delegate for <CountriesViewControllerDelegate>.
-    public var delegate: CountriesViewControllerDelegate?
+    @objc public var delegate: CountriesViewControllerDelegate?
 
     /// The current selected country.
     public var selectedCountry: Country?
